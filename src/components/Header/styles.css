@@ -1,0 +1,13 @@
+header,
+
+
+#navbar-links a {
+    color: #FFF;
+    cursor: pointer;
+}
+
+#navbar-links a:hover {
+    color: #65DAF9
+    
+}
+
