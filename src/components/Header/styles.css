@@ -1,9 +1,22 @@
 header,
 
+.container {
+    padding: 100px 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#brand-text {
+    font-size:40px;
+}
 
 #navbar-links a {
     color: #FFF;
     cursor: pointer;
+    font-size: 25px;
+    padding: 15px;
 }
 
 #navbar-links a:hover {
