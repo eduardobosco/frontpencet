@@ -8,6 +8,7 @@ import Produtos from './pages/Produtos';
 import ProdutosForm from './pages/Produtos/Form';
 import Categorias from './pages/Categorias';
 import CategoriasForm from './pages/Categorias/Form';
+import Clientes from './pages/Clientes';
 
 const Routes: React.FC = () => {
   return (
@@ -17,11 +18,14 @@ const Routes: React.FC = () => {
           <Route path="/cadastro" exact component={TasksForm} />
           <Route path="/cadastro/:id" exact component={TasksForm} />
           <Route path="/produto" exact component={Produtos} />
-          <Route path="/produto" exact component={ProdutosForm} />
+          <Route path="/cadproduto" exact component={ProdutosForm} />
           <Route path="/produto/:id" exact component={ProdutosForm} />
           <Route path="/categoria" exact component={Categorias} />
           <Route path="/cadcategoria" exact component={CategoriasForm} />
           <Route path="/cadcategoria/:id" exact component={CategoriasForm} />
+          <Route path="/cliente" exact component={Clientes} />
+          <Route path="/cadcliente" exact component={CategoriasForm} />
+          <Route path="/cadcliente/:id" exact component={CategoriasForm} />
       </Switch>
   );
 }

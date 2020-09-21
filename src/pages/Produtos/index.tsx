@@ -36,11 +36,11 @@ const Produto: React.FC = () => {
    }
 
    function newProduto() {
-     history.push('/produtoform')
+     history.push('/cadproduto')
    }
 
    function editProduto(id: number) {
-     history.push(`/produtoform/${id}`)
+     history.push(`/cadproduto/${id}`)
    }
 
    async function deleteProduto(id: number) {
