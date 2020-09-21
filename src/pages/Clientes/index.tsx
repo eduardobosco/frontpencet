@@ -13,7 +13,7 @@ interface Itask {
   cpf: string;
   dataNascimento: string;
   email:string;
-  endereço:string
+//  endereco:string
 }
 
 
@@ -65,7 +65,7 @@ const Clientes: React.FC = () => {
                       <th>CPF</th>
                       <th>Data de Nascimento</th>
                       <th>E-mail</th>
-                      <th>Endereço</th>
+     
                       <th>Ações</th>
                   </tr>
               </thead>
@@ -80,7 +80,7 @@ const Clientes: React.FC = () => {
                               <td>{clientes.cpf}</td>
                               <td>{clientes.dataNascimento}</td>
                               <td>{clientes.email}</td>
-                              <td>{clientes.endereço}</td>
+                              
                               <td>
                                   <Button size="sm" variant="outline-primary" onClick={()=> editFunc(clientes.id)}>Editar</Button>{' '}
                                   <Button size="sm" variant="outline-danger" onClick={()=> deleteFunc(clientes.id)} >Deletar</Button>
