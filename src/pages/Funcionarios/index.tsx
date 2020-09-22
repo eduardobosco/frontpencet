@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom'
 import api from '../../services/api'
 import './styles.css'
 
-interface Itask {
+interface Ifuncionario {
     id: number;
     nome: string;
     cpf: string
@@ -13,27 +13,27 @@ interface Itask {
 
 const Tasks: React.FC = () => {
 
-    const [tasks, setTasks] = useState<Itask[]>([]);
+    const [funcionario, setFuncionario] = useState<Ifuncionario[]>([]);
   
     const history = useHistory();
 
     useEffect(() => {
-        loadTasks()
+        loadFuncionario()
     }, [])
 
-    async function loadTasks() {
+    async function loadFuncionario() {
 
         const response = await api.get('/funcionario')
         console.log(response)
-        setTasks(response.data)
+        setFuncionario(response.data)
     }
 
     function newFunc(){
-        history.push('/cadastro')
+        history.push('/cadfuncionario')
     }
 
     function editFunc(id: number){
-        history.push(`/cadastro/${id}`)
+        history.push(`/funcionario/${id}`)
     }
 
     async function deleteFunc(id: number){
@@ -62,14 +62,14 @@ const Tasks: React.FC = () => {
                 <tbody>
 
                     {
-                        tasks.map(tasks => (
-                            <tr key={tasks.id}>
-                                <td>{tasks.id}</td>
-                                <td>{tasks.nome}</td>
-                                <td>{tasks.cpf}</td>
+                        funcionario.map(funcionario => (
+                            <tr key={funcionario.id}>
+                                <td>{funcionario.id}</td>
+                                <td>{funcionario.nome}</td>
+                                <td>{funcionario.cpf}</td>
                                 <td>
-                                    <Button size="sm" variant="outline-primary" onClick={()=> editFunc(tasks.id)}>Editar</Button>{' '}
-                                    <Button size="sm" variant="outline-danger" onClick={()=> deleteFunc(tasks.id)} >Deletar</Button>
+                                    <Button size="sm" variant="outline-primary" onClick={()=> editFunc(funcionario.id)}>Editar</Button>{' '}
+                                    <Button size="sm" variant="outline-danger" onClick={()=> deleteFunc(funcionario.id)} >Deletar</Button>
                                 </td>
                             </tr>
                         ))

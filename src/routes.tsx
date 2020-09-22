@@ -2,8 +2,8 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 import Home from './pages/Home';
-import Tasks from './pages/Tasks';
-import TasksForm from './pages/Tasks/Form';
+import Funcionarios from './pages/Funcionarios';
+import FuncionariosForm from './pages/Funcionarios/Form';
 import Produtos from './pages/Produtos';
 import ProdutosForm from './pages/Produtos/Form';
 import Categorias from './pages/Categorias';
@@ -15,18 +15,18 @@ const Routes: React.FC = () => {
   return (
       <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/tarefas" exact component={Tasks} />
-          <Route path="/cadastro" exact component={TasksForm} />
-          <Route path="/cadastro/:id" exact component={TasksForm} />
+          <Route path="/funcionario" exact component={Funcionarios} />
+          <Route path="/cadfuncionario" exact component={FuncionariosForm} />
+          <Route path="/funcionario/:id" exact component={FuncionariosForm} />
           <Route path="/produto" exact component={Produtos} />
           <Route path="/cadproduto" exact component={ProdutosForm} />
           <Route path="/produto/:id" exact component={ProdutosForm} />
           <Route path="/categoria" exact component={Categorias} />
           <Route path="/cadcategoria" exact component={CategoriasForm} />
-          <Route path="/cadcategoria/:id" exact component={CategoriasForm} />
+          <Route path="/categoria/:id" exact component={CategoriasForm} />
           <Route path="/cliente" exact component={Clientes} />
           <Route path="/cadcliente" exact component={ClientesForm} />
-          <Route path="/cadcliente/:id" exact component={ClientesForm} />
+          <Route path="/cliente/:id" exact component={ClientesForm} />
       </Switch>
   );
 }

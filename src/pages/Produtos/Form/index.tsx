@@ -5,8 +5,11 @@ import api from '../../../services/api';
 import { Link } from 'react-router-dom';
 import moment from 'moment'
 import './styles.css';
+import Funcionarios from '../../Funcionarios';
+import {Categoria} from '../../Categorias/types'
+import {Funcionario} from '../../Funcionarios/types'
 
-interface Itask {
+interface Iprod {
     nome: string;
     descricao: string;
     qtdEstoque: number;
@@ -19,9 +22,39 @@ interface Itask {
 
 const Produtos: React.FC = () => {
 
+    //type categoria
+  const [categorias, setCategorias] = useState<Categoria[]>([]);
+
+  useEffect(() => {
+  loadCategoria()
+}, [])
+
+async function loadCategoria() {
+
+  const response = await api.get('/categoria')
+  console.log(response)
+  setCategorias(response.data)
+}
+
+//type funcionario
+
+const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
+
+  useEffect(() => {
+  loadFuncionario()
+}, [])
+
+async function loadFuncionario() {
+
+  const response = await api.get('/funcionario')
+  console.log(response)
+  setFuncionarios(response.data)
+}
+
+    // form produto
     const history = useHistory();
     const { id } = useParams();
-    const [model, setModel] = useState<Itask>({
+    const [model, setModel] = useState<Iprod>({
         nome:'',
         descricao:'',
         qtdEstoque:0,
@@ -40,6 +73,8 @@ const Produtos: React.FC = () => {
     }, [id]);
 
     function updateModel(e: ChangeEvent<HTMLInputElement>) {
+        console.log(e.target)
+        console.log(e.target.value)
         setModel({
             ...model,
             [e.target.name]: e.target.value
@@ -103,7 +138,7 @@ const Produtos: React.FC = () => {
 
                     <Form.Group>
                         <Form.Label>Estoque</Form.Label>
-                        <Form.Control type="text" placeholder="Quantidade em Estoque" name="Estoque" value={model.qtdEstoque} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="text" placeholder="Quantidade em Estoque" name="estoque" value={model.qtdEstoque} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
                     <Form.Group>
@@ -113,12 +148,17 @@ const Produtos: React.FC = () => {
 
                     <Form.Group>
                         <Form.Label>Nome Funcionario</Form.Label>
-                        <Form.Control as="select" placeholder="Funcionario" name="funcionario" value={model.nomeFuncionario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control as="select" placeholder="Funcionario" name="funcionario" value={model.nomeFuncionario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
+                        {funcionarios.map((funcionario, index)=> (<option key={funcionario.id} value={funcionario.id}>{funcionario.nome}</option>))}
+                        </Form.Control>
+                        
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Nome Categoria</Form.Label>
-                        <Form.Control as="select" placeholder="Categoria" name="Categoria" value={model.nomeCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control as="select" placeholder="Categoria" name="categoria" value={model.nomeCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
+                        {categorias.map((categoria, index)=> (<option key={categoria.nome} value={categoria.id}>{categoria.nome}</option>))}
+                        </Form.Control>
                     </Form.Group>
 
                     <Form.Group>

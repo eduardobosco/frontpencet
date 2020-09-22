@@ -5,6 +5,7 @@ import { Url } from 'url';
 import api from '../../services/api'
 import '../Produtos/styles.css'
 
+
 interface Iprod {
   id: number;
   nome: string,
@@ -27,6 +28,8 @@ const Produto: React.FC = () => {
    useEffect(() => {
      loadProdutos()
    }, [])
+
+  
 
    async function loadProdutos() {
 

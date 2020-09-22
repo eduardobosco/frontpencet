@@ -20,7 +20,7 @@ const Header: React.FC = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto" id="navbar-links">
                     <Nav.Item as={Link} className="nav-link" to="/">Home</Nav.Item>
-                    <Nav.Item as={Link} className="nav-link" to="/tarefas">Funcionários</Nav.Item>
+                    <Nav.Item as={Link} className="nav-link" to="/funcionario">Funcionários</Nav.Item>
                     <Nav.Item as={Link} className="nav-link" to="/produto">Produtos</Nav.Item>
                     <Nav.Item as={Link} className="nav-link" to="/categoria">Categorias</Nav.Item>
                     <Nav.Item as={Link} className="nav-link" to="/cliente">Clientes</Nav.Item>
