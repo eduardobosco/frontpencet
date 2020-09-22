@@ -3,6 +3,7 @@ import { Button, Table } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom'
 import api from '../../services/api'
 import '../Clientes/styles.css'
+import moment from 'moment'
 
 // import { Container } from './styles';
 
@@ -11,7 +12,7 @@ interface Itask {
     nome: string;
     usuario: string;
     cpf: string;
-    dataNascimento: string;
+    dataNascimento: Date;
     email: string;
     //  endereco:string
 }
@@ -29,22 +30,27 @@ const Clientes: React.FC = () => {
 
     async function loadClientes() {
 
-        const response = await api.get('/cliente')
+        const response = await api.get('/cliente');
         console.log(response)
-        setClientes(response.data)
+        setClientes(response.data);
     }
 
     function newCliente() {
-        history.push('/cadcliente')
+        history.push('/cadcliente');
     }
 
     function editCliente(id: number) {
-        history.push(`/cadcliente/${id}`)
+        history.push(`/cliente/${id}`);
+    }
+    
+    async function deleteCliente(id: number) {
+        await api.delete(`/cliente/${id}`);
+        loadClientes();
+
     }
 
-    async function deleteCliente(id: number) {
-        await api.delete(`/cliente/${id}`)
-
+    function formatDate(date: Date){ 
+        return moment(date).format("DD/MM/YYYY");
     }
 
     return (

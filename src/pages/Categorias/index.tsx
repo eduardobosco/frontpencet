@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Table } from 'react-bootstrap';
+import { Alert, Button, Table } from 'react-bootstrap';
 import {useHistory} from 'react-router-dom'
 import api from '../../services/api'
 import './styles.css'
@@ -33,11 +33,16 @@ const Categorias: React.FC = () => {
     }
 
     function editCategoria(id: number){
-        history.push(`/cadcategoria/${id}`)
+        history.push(`/categoria/${id}`)
     }
 
     async function deleteCategoria(id: number){
-        await api.delete(`/categoria/${id}`)
+        if (await api.delete(`/categoria/${id}`)){
+            alert("Deletado com Sucesso");
+        }else{
+            alert("Campo com dependencias, não é possivel deletar");
+        }
+        loadCategorias()
         
     }
 

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { Url } from 'url';
 import api from '../../services/api'
 import '../Produtos/styles.css'
+import { Categoria } from '../Categorias/types';
 
 
 interface Iprod {
@@ -13,7 +14,7 @@ interface Iprod {
   qtdEstoque: number,
   valor: number,
   nomeFuncionario: string,
-  nomeCategoria: string,
+  categoria: Categoria,
   dataFabricacao: Date;
   fotoLink: Url
   
@@ -43,7 +44,7 @@ const Produto: React.FC = () => {
    }
 
    function editProduto(id: number) {
-     history.push(`/cadproduto/${id}`)
+     history.push(`/produto/${id}`)
    }
 
    async function deleteProduto(id: number) {
@@ -80,7 +81,7 @@ const Produto: React.FC = () => {
                 <td>{produtos.id}</td>
                 <td>{produtos.fotoLink}</td>
                 <td>{produtos.nome}</td>
-                <td>{produtos.nomeCategoria}</td>
+                <td>{produtos.categoria.nome}</td>
                 <td>{produtos.qtdEstoque}</td>
                 <td>{produtos.valor}</td>
                 <td >

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create ({
-    baseURL:"http://residencia-ecommerce.us-east-1.elasticbeanstalk.com"
+    baseURL:"http://localhost:8080"
 });
 
 export default api

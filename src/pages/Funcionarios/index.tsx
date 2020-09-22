@@ -38,7 +38,7 @@ const Tasks: React.FC = () => {
 
     async function deleteFunc(id: number){
         await api.delete(`/funcionario/${id}`)
-        
+        loadFuncionario();
     }
 
     return (
@@ -74,14 +74,9 @@ const Tasks: React.FC = () => {
                             </tr>
                         ))
                     }
-
-
-
                 </tbody>
             </Table>
-
         </div>
-
     );
 }
 

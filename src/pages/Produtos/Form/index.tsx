@@ -14,8 +14,8 @@ interface Iprod {
     descricao: string;
     qtdEstoque: number;
     valor: number;
-    nomeFuncionario: string;
-    nomeCategoria: string;
+    funcionario: string;
+    categoria: string;
     dataFabricacao: string;
     fotoLink: string
 }
@@ -59,10 +59,10 @@ async function loadFuncionario() {
         descricao:'',
         qtdEstoque:0,
         valor:0,
-        nomeFuncionario:'',
-        nomeCategoria:'',
+        funcionario:'',
+        categoria:'',
         dataFabricacao:'',
-        fotoLink:''
+        fotoLink:'',
 
     });
 
@@ -103,8 +103,8 @@ async function loadFuncionario() {
             descricao: response.data.descricao,
             qtdEstoque: response.data.qtdEstoque,
             valor: response.data.valor,
-            nomeFuncionario: response.data.nomeFuncionario,
-            nomeCategoria: response.data.nomeCategoria,
+            funcionario: response.data.funcionario,
+            categoria: response.data.categoria,
             dataFabricacao: response.data.dataFabricacao,
             fotoLink:response.data.fotoLink,
 
@@ -141,38 +141,38 @@ async function loadFuncionario() {
 
                     <Form.Group>
                         <Form.Label>Estoque</Form.Label>
-                        <Form.Control type="text" placeholder="Quantidade em Estoque" name="estoque" value={model.qtdEstoque} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="text" placeholder="Estoque" name="estoque" defaultValue={model.qtdEstoque} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Valor</Form.Label>
-                        <Form.Control type="text" placeholder="Valor Unitario" name="valor" value={model.valor} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="text" placeholder="Valor Unitario" name="valor" defaultValue={model.valor} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Nome Funcionario</Form.Label>
-                        <Form.Control as="select" placeholder="Funcionario" name="funcionario" value={model.nomeFuncionario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
-                        {funcionarios.map((funcionario, index)=> (<option key={funcionario.id} value={funcionario.id}>{funcionario.nome}</option>))}
+                        <Form.Control as="select" placeholder="Funcionario" name="funcionario" value={model.funcionario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
+                        {funcionarios.map((funcionario, index)=> (<option key={funcionario.nome} value={funcionario.id}>{funcionario.nome}</option>))}
                         </Form.Control>
                         
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label id="categoria-options">Nome Categoria</Form.Label>
-                        <Form.Control as="select" placeholder="Categoria" name="categoria" value={model.nomeCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
+                        <Form.Control as="select" placeholder="Categoria" name="categoria" value={model.categoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
                         {categorias.map((categoria, index)=> (<option key={categoria.nome} value={categoria.id}>{categoria.nome}</option>))}
                         </Form.Control>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Data de Fabricação</Form.Label>
-                        <Form.Control type="text" placeholder="DD/MM/YYYY" name="fabricação" value={model.dataFabricacao} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="date" placeholder="DD/MM/YYYY" name="fabricação" defaultValue={model.dataFabricacao} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
-                    <Form.Group>
+                    {/* <Form.Group>
                         <Form.Label>Imagem</Form.Label>
                         <Form.Control type="text" placeholder="Link da imagem" name="imagem" value={model.fotoLink} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Button variant="outline-dark" type="submit">
                         Salvar
