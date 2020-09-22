@@ -49,7 +49,7 @@ const Categorias: React.FC = () => {
     return (
 
         <div className="container">
-            <br />
+
             <div className="task-header">
             <h1>Categorias</h1>
             <Button variant="outline-dark" onClick={newCategoria}>Nova Categoria</Button>

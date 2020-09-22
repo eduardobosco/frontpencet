@@ -129,13 +129,11 @@ const Clientes: React.FC = () => {
                         <Form.Label>e-mail</Form.Label>
                         <Form.Control type="email" placeholder="email" name="email" value={model.email} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
-
                     <div>
                         <br/>
                         <h1>Endereço</h1>
                         <br/>
                     </div>
-
                     <Form.Group>
                         <Form.Label>Rua</Form.Label>
                         <Form.Control type="text" placeholder="Rua" name="rua" value={model.rua} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
@@ -173,16 +171,10 @@ const Clientes: React.FC = () => {
 
                     <Button variant="outline-dark" type="submit">
                         Salvar
-                    </Button>
-                    
-                </Form>
-                
+                    </Button>                    
+                </Form>                
             </div>
-
-
         </div>
-
     );
 }
-
 export default Clientes;
