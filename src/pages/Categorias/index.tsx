@@ -28,15 +28,15 @@ const Categorias: React.FC = () => {
         setCategorias(response.data)
     }
 
-    function newFunc(){
+    function newCategoria(){
         history.push('/cadcategoria')
     }
 
-    function editFunc(id: number){
+    function editCategoria(id: number){
         history.push(`/cadcategoria/${id}`)
     }
 
-    async function deleteFunc(id: number){
+    async function deleteCategoria(id: number){
         await api.delete(`/categoria/${id}`)
         
     }
@@ -47,7 +47,7 @@ const Categorias: React.FC = () => {
             <br />
             <div className="task-header">
             <h1>Categorias</h1>
-            <Button variant="outline-dark" onClick={newFunc}>Nova Categoria</Button>
+            <Button variant="outline-dark" onClick={newCategoria}>Nova Categoria</Button>
             </div>
             <br />
             <Table striped bordered hover className="text-center">
@@ -68,8 +68,8 @@ const Categorias: React.FC = () => {
                                 <td>{categorias.nome}</td>
                                 <td>{categorias.descricao}</td>
                                 <td>
-                                    <Button size="sm" variant="outline-primary" onClick={()=> editFunc(categorias.id)}>Editar</Button>{' '}
-                                    <Button size="sm" variant="outline-danger" onClick={()=> deleteFunc(categorias.id)} >Deletar</Button>
+                                    <Button size="sm" variant="outline-primary" onClick={()=> editCategoria(categorias.id)}>Editar</Button>{' '}
+                                    <Button size="sm" variant="outline-danger" onClick={()=> deleteCategoria(categorias.id)} >Deletar</Button>
                                 </td>
                             </tr>
                         ))
