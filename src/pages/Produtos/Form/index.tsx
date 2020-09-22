@@ -15,10 +15,9 @@ interface Iprod {
     descricao: string;
     qtdEstoque: number;
     valor: number;
-    funcionario: string;
-    categoria: string;
+    id_funcionario: string;
+    id_categoria: string;
     dataFabricacao: string;
-    fotoLink: string
 }
 
 const Produtos: React.FC = () => {
@@ -60,10 +59,9 @@ async function loadFuncionario() {
         descricao:'',
         qtdEstoque:0,
         valor:0,
-        funcionario:'',
-        categoria:'',
+        id_funcionario:'',
+        id_categoria:'',
         dataFabricacao:'',
-        fotoLink:'',
 
     });
 
@@ -84,7 +82,7 @@ async function loadFuncionario() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-
+console.log(model)
         if (id !== undefined) {
             const response = await api.put(`/produto/${id}`, model)
         } else {
@@ -104,10 +102,10 @@ async function loadFuncionario() {
             descricao: response.data.descricao,
             qtdEstoque: response.data.qtdEstoque,
             valor: response.data.valor,
-            funcionario: response.data.funcionario,
-            categoria: response.data.categoria,
+            id_funcionario: response.data.id_funcionario,
+            id_categoria: response.data.id_categoria,
             dataFabricacao: response.data.dataFabricacao,
-            fotoLink:response.data.fotoLink,
+
 
         });
     }
@@ -141,7 +139,7 @@ async function loadFuncionario() {
 
                     <Form.Group>
                         <Form.Label>Estoque</Form.Label>
-                        <Form.Control type="text" placeholder="Estoque" name="estoque" defaultValue={model.qtdEstoque} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="text" placeholder="Estoque" name="qtdEstoque" defaultValue={model.qtdEstoque} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
                     <Form.Group>
@@ -151,7 +149,7 @@ async function loadFuncionario() {
 
                     <Form.Group>
                         <Form.Label>Nome Funcionario</Form.Label>
-                        <Form.Control as="select" placeholder="Funcionario" name="funcionario" value={model.funcionario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
+                        <Form.Control as="select" placeholder="Funcionario" name="id_funcionario" value={model.id_funcionario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
                         {funcionarios.map((funcionario, index)=> (<option key={funcionario.nome} value={funcionario.id}>{funcionario.nome}</option>))}
                         </Form.Control>
                         
@@ -159,14 +157,14 @@ async function loadFuncionario() {
 
                     <Form.Group>
                         <Form.Label id="categoria-options">Nome Categoria</Form.Label>
-                        <Form.Control as="select" placeholder="Categoria" name="categoria" value={model.categoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
+                        <Form.Control as="select" placeholder="Categoria" name="id_categoria" value={model.id_categoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
                         {categorias.map((categoria, index)=> (<option key={categoria.nome} value={categoria.id}>{categoria.nome}</option>))}
                         </Form.Control>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Data de Fabricação</Form.Label>
-                        <Form.Control type="date" placeholder="DD/MM/YYYY" name="fabricação" defaultValue={model.dataFabricacao} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="text" placeholder="YYYY-MM-DDT00:00:00Z" name="dataFabricacao" defaultValue={model.dataFabricacao} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
                     {/* <Form.Group>

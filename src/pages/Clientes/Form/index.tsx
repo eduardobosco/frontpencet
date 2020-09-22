@@ -60,13 +60,13 @@ const Clientes: React.FC = () => {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-
         if (id !== undefined) {
             const response = await api.put(`/cliente/${id}`, model)
         } else {
             const response = await api.post('/cliente', model)
         }
         back()
+       
     }
 
     function formatDate(date: Date) {
@@ -123,7 +123,7 @@ const Clientes: React.FC = () => {
 
                     <Form.Group>
                         <Form.Label>Data de Nascimento</Form.Label>
-                        <Form.Control type="text" placeholder="DD-MM-YYYY" name="data" defaultValue={model.dataNascimento} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="text" placeholder="DD-MM-YYYY" name="dataNascimento" defaultValue={model.dataNascimento} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
                     <Form.Group>
@@ -147,7 +147,7 @@ const Clientes: React.FC = () => {
 
                     <Form.Group>
                         <Form.Label>Complemento</Form.Label>
-                        <Form.Control type="text" placeholder="Complemento" name="complemento" value={model.complemento} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="text" placeholder="Complemento" name="complemento" value={model.complemento} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} />
                     </Form.Group>
 
                     <Form.Group>

@@ -83,7 +83,7 @@ const Clientes: React.FC = () => {
                                 <td>{clientes.nome}</td>
                                 <td>{clientes.usuario}</td>
                                 <td>{clientes.cpf}</td>
-                                <td>{clientes.dataNascimento}</td>
+                                <td>{formatDate(clientes.dataNascimento)}</td>
                                 <td>{clientes.email}</td>
                                 <td>
                                     <Button id="action-button" size="sm" variant="outline-info" onClick={() => editCliente(clientes.id)}>Detalhes</Button>{' '}
