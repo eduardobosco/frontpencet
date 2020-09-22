@@ -115,6 +115,9 @@ async function loadFuncionario() {
         history.goBack()
     }
 
+    
+			
+
     return (
 
         <div className="container">
@@ -155,7 +158,7 @@ async function loadFuncionario() {
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Nome Categoria</Form.Label>
+                        <Form.Label id="categoria-options">Nome Categoria</Form.Label>
                         <Form.Control as="select" placeholder="Categoria" name="categoria" value={model.nomeCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
                         {categorias.map((categoria, index)=> (<option key={categoria.nome} value={categoria.id}>{categoria.nome}</option>))}
                         </Form.Control>
