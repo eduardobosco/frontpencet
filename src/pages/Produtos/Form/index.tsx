@@ -97,6 +97,7 @@ console.log(model)
 
     async function findProd(id: string) {
         const response = await api.get(`produto/${id}`)
+        
         setModel({
             nome: response.data.nome,
             descricao: response.data.descricao,
@@ -105,17 +106,11 @@ console.log(model)
             id_funcionario: response.data.id_funcionario,
             id_categoria: response.data.id_categoria,
             dataFabricacao: response.data.dataFabricacao,
-
-
-        });
+        });      
     }
-
     function back() {
         history.goBack()
     }
-
-    
-			
 
     return (
 
@@ -139,12 +134,12 @@ console.log(model)
 
                     <Form.Group>
                         <Form.Label>Estoque</Form.Label>
-                        <Form.Control type="text" placeholder="Estoque" name="qtdEstoque" defaultValue={model.qtdEstoque} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="text" placeholder="Estoque" name="qtdEstoque" value={model.qtdEstoque} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Valor</Form.Label>
-                        <Form.Control type="text" placeholder="Valor Unitario" name="valor" defaultValue={model.valor} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Form.Control type="text" placeholder="Valor Unitario" name="valor" value={model.valor} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
                     <Form.Group>
@@ -167,20 +162,12 @@ console.log(model)
                         <Form.Control type="text" placeholder="YYYY-MM-DDT00:00:00Z" name="dataFabricacao" defaultValue={model.dataFabricacao} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
                     </Form.Group>
 
-                    {/* <Form.Group>
-                        <Form.Label>Imagem</Form.Label>
-                        <Form.Control type="text" placeholder="Link da imagem" name="imagem" value={model.fotoLink} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
-                    </Form.Group> */}
-
                     <Button variant="outline-dark" type="submit">
                         Salvar
                     </Button>
                 </Form>
             </Container>            
-
-
         </>
-
     );
 }
 

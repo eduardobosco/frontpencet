@@ -49,6 +49,7 @@ const Produto: React.FC = () => {
 
    async function deleteProduto(id: number) {
      await api.delete(`/produto/${id}`)
+     loadProdutos()
 
   }
 

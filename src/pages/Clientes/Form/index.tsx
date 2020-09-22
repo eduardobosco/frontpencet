@@ -8,6 +8,7 @@ import './styles.css';
 import {Endereco} from '../types'
 import Grid from '@material-ui/core/Grid';
 import { Container } from '@material-ui/core';
+import { ClienteDetalhes } from '../../../components/modal/modal'
 
 
 interface Itask {
@@ -81,13 +82,13 @@ const Clientes: React.FC = () => {
             cpf: response.data.cpf,
             dataNascimento: response.data.dataNascimento,
             email: response.data.email,
-            rua:response.data.rua,
-            numero:response.data.numero,
-            complemento:response.data.complemento,
-            bairro:response.data.bairro,
-            cidade:response.data.cidade,
-            estado:response.data.estado, 
-            cep:response.data.cep,
+            rua:response.data.endereco.rua,
+            numero:response.data.endereco.numero,
+            complemento:response.data.endereco.complemento,
+            bairro:response.data.endereco.bairro,
+            cidade:response.data.endereco.cidade,
+            estado:response.data.endereco.estado, 
+            cep:response.data.endereco.cep,
         
 
         });
