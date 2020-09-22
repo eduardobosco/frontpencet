@@ -48,7 +48,7 @@ const Categorias: React.FC = () => {
 
     return (
 
-        <div className="container">
+        <>
 
             <div className="task-header">
             <h1>Categorias</h1>
@@ -81,7 +81,7 @@ const Categorias: React.FC = () => {
                     }
                 </tbody>
             </Table>
-        </div>
+        </>
     );
 }
 

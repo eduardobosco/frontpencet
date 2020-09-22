@@ -54,8 +54,7 @@ const Produto: React.FC = () => {
 
   return (
 
-    <div className="container">
-      <br />
+    <>
       <div className="product-header">
         <h1>Produtos</h1>
         <Button variant="outline-dark" onClick={newProduto}>Novo Produto</Button>
@@ -98,7 +97,7 @@ const Produto: React.FC = () => {
         </tbody>
       </Table>
 
-    </div>
+    </>
 
   );
 }

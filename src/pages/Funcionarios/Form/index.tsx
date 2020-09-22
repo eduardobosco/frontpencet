@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import api from '../../../services/api';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import { Container } from '@material-ui/core';
 
 interface Itask {
     nome: string;
@@ -58,14 +59,13 @@ const Tasks: React.FC = () => {
 
     return (
 
-        <div className="container">
-            <br />
+        <>
             <div className="task-header">
                 <h1>Cadastro Funcionários</h1>
                 <Button variant="outline-dark" onClick={back}>Voltar</Button>
             </div>
-            <br />
-            <div className="container">
+    
+            <Container>
                 <Form onSubmit={onSubmit}>
                     <Form.Group>
                         <Form.Label>Nome</Form.Label>
@@ -94,11 +94,8 @@ const Tasks: React.FC = () => {
                         Salvar
                     </Button>
                 </Form>
-            </div>
-
-
-        </div>
-
+            </Container>
+        </>
     );
 }
 

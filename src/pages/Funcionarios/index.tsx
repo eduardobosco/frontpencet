@@ -43,8 +43,7 @@ const Tasks: React.FC = () => {
 
     return (
 
-        <div className="container">
-            <br />
+        <>
             <div className="task-header">
             <h1>Funcionários</h1>
             <Button variant="outline-dark" onClick={newFunc}>Novo Funcionário</Button>
@@ -76,7 +75,7 @@ const Tasks: React.FC = () => {
                     }
                 </tbody>
             </Table>
-        </div>
+        </>
     );
 }
 

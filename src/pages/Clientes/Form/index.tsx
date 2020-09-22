@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import moment from 'moment'
 import './styles.css';
 import {Endereco} from '../types'
+import Grid from '@material-ui/core/Grid';
+import { Container } from '@material-ui/core';
 
 
 interface Itask {
@@ -96,14 +98,13 @@ const Clientes: React.FC = () => {
     }
 
     return (
-
-        <div className="container">
-            <br />
+        <>
+        
             <div className="task-header">
                 <h1>Cadastro de Clientes</h1>
                 <Button variant="outline-dark" onClick={back}>Voltar</Button>
             </div>
-            <div className="container">
+            <Container> 
                 <Form onSubmit={onSubmit}>
                     <Form.Group>
                         <Form.Label>Nome</Form.Label>
@@ -173,8 +174,8 @@ const Clientes: React.FC = () => {
                         Salvar
                     </Button>                    
                 </Form>                
-            </div>
-        </div>
+            </Container>
+        </>
     );
 }
 export default Clientes;

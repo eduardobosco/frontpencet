@@ -8,6 +8,7 @@ import './styles.css';
 import Funcionarios from '../../Funcionarios';
 import {Categoria} from '../../Categorias/types'
 import {Funcionario} from '../../Funcionarios/types'
+import { Container } from '@material-ui/core';
 
 interface Iprod {
     nome: string;
@@ -120,14 +121,13 @@ async function loadFuncionario() {
 
     return (
 
-        <div className="container">
-            <br />
+        <>
             <div className="task-header">
                 <h1>Cadastro de Produtos</h1>
                 <Button variant="outline-dark" onClick={back}>Voltar</Button>
             </div>
             <br />
-            <div className="container">
+            <Container>
                 <Form onSubmit={onSubmit}>
                     <Form.Group>
                         <Form.Label>Nome</Form.Label>
@@ -178,10 +178,10 @@ async function loadFuncionario() {
                         Salvar
                     </Button>
                 </Form>
-            </div>
+            </Container>            
 
 
-        </div>
+        </>
 
     );
 }

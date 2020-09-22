@@ -55,8 +55,7 @@ const Clientes: React.FC = () => {
 
     return (
 
-        <div className="container">
-            <br />
+        <>
             <div className="task-header">
                 <h1>Clientes</h1>
                 <Button variant="outline-dark" onClick={newCliente}>Novo Cliente</Button>
@@ -96,7 +95,7 @@ const Clientes: React.FC = () => {
                     }
                 </tbody>
             </Table>
-        </div>
+        </>
     );
 }
 
