@@ -12,18 +12,23 @@
   
   .home-text-title {
     font-size: 60px;
-    color:#007bff
+
   }
   
   .home-text-subtitle {
     font-size: 36px;
     text-align: center;
-
   }
   
   .home-image {
     max-width: 650px;
     height: auto;
+  }
+
+  .home-logo{
+    max-width: 120px;
+    height: auto;
+    margin-left: 180px;
   }
 
   /* responsive */
