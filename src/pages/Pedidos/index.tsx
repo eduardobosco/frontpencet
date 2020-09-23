@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom'
 import api from '../../services/api'
-import '../Pedidos/styles.css'
+import './styles.css'
 import moment from 'moment'
 import {Cliente} from '../Clientes/types'
 import {Produto} from '../Produtos/types'
