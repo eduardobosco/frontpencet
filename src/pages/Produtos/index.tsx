@@ -84,7 +84,7 @@ const Produto: React.FC = () => {
                 <td>{produtos.nome}</td>
                 <td>{produtos.categoria.nome}</td>
                 <td>{produtos.qtdEstoque}</td>
-                <td>{produtos.valor}</td>
+                <td>R$ {produtos.valor.toFixed(2).replace(".",",")}</td>
                 <td>{formatDate(produtos.dataFabricacao)}</td>
                 <td >
                   <Button id="action-button" size="sm" variant="outline-info" onClick={() => editProduto(produtos.id)}>Detalhes</Button>{' '}

@@ -66,6 +66,7 @@ const Clientes: React.FC = () => {
         } else {
             const response = await api.post('/cliente', model)
         }
+        alert("Cadastro Realizado com Sucesso")
         back()
 
     }

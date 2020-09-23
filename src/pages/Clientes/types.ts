@@ -7,3 +7,13 @@ export type Endereco = {
     numero: number;
     rua: string;
 }
+
+export type Cliente ={
+    id: number;
+    nome: string;
+    usuario: string;
+    cpf: string;
+    dataNascimento: Date;
+    email: string;
+    endereco: Endereco;
+}

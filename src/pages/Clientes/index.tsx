@@ -37,6 +37,7 @@ const Clientes: React.FC = () => {
 
     function newCliente() {
         history.push('/cadcliente');
+        
     }
 
     function editCliente(id: number) {
