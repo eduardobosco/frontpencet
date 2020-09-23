@@ -46,7 +46,7 @@ const Tasks: React.FC = () => {
         <>
             <div className="task-header">
             <h1>Funcionários</h1>
-            <Button variant="outline-dark" onClick={newFunc}>Novo Funcionário</Button>
+            <Button variant="outline-primary" onClick={newFunc}>Novo Funcionário</Button>
             </div>
             <br />
             <Table striped bordered hover className="text-center">

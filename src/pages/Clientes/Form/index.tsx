@@ -1,14 +1,14 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import api from '../../../services/api';
 import { Link } from 'react-router-dom';
 import moment from 'moment'
 import './styles.css';
-import {Endereco} from '../types'
+import { Endereco } from '../types'
 import Grid from '@material-ui/core/Grid';
 import { Container } from '@material-ui/core';
-import { ClienteDetalhes } from '../../../components/modal/modal'
+//import { ClienteDetalhes } from '../../../components/modal/modal'
 
 
 interface Itask {
@@ -46,7 +46,7 @@ const Clientes: React.FC = () => {
 
     });
 
-       useEffect(() => {
+    useEffect(() => {
         if (id !== undefined) {
             findClientes(id)
         }
@@ -67,7 +67,7 @@ const Clientes: React.FC = () => {
             const response = await api.post('/cliente', model)
         }
         back()
-       
+
     }
 
     function formatDate(date: Date) {
@@ -82,14 +82,14 @@ const Clientes: React.FC = () => {
             cpf: response.data.cpf,
             dataNascimento: response.data.dataNascimento,
             email: response.data.email,
-            rua:response.data.endereco.rua,
-            numero:response.data.endereco.numero,
-            complemento:response.data.endereco.complemento,
-            bairro:response.data.endereco.bairro,
-            cidade:response.data.endereco.cidade,
-            estado:response.data.endereco.estado, 
-            cep:response.data.endereco.cep,
-        
+            rua: response.data.endereco.rua,
+            numero: response.data.endereco.numero,
+            complemento: response.data.endereco.complemento,
+            bairro: response.data.endereco.bairro,
+            cidade: response.data.endereco.cidade,
+            estado: response.data.endereco.estado,
+            cep: response.data.endereco.cep,
+
 
         });
     }
@@ -100,12 +100,12 @@ const Clientes: React.FC = () => {
 
     return (
         <>
-        
+
             <div className="task-header">
                 <h1>Cadastro de Clientes</h1>
-                <Button variant="outline-dark" onClick={back}>Voltar</Button>
+                <Button variant="outline-primary" onClick={back}>Voltar</Button>
             </div>
-            <Container> 
+            <Container>
                 <Form onSubmit={onSubmit}>
                     <Form.Group>
                         <Form.Label>Nome</Form.Label>
@@ -113,28 +113,34 @@ const Clientes: React.FC = () => {
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Usuário</Form.Label>
-                        <Form.Control type="text" placeholder="Usuário" name="usuario" value={model.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Row>
+                            <Col>
+                                <Form.Label>Usuário</Form.Label>
+                                <Form.Control type="text" placeholder="Usuário" name="usuario" value={model.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                            </Col>
+                            <Col>
+                                <Form.Label>CPF</Form.Label>
+                                <Form.Control type="text" placeholder="CPF" name="cpf" value={model.cpf} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                            </Col>
+                        </Row>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>CPF</Form.Label>
-                        <Form.Control type="text" placeholder="CPF" name="cpf" value={model.cpf} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
-                    </Form.Group>
-
-                    <Form.Group>
-                        <Form.Label>Data de Nascimento</Form.Label>
-                        <Form.Control type="text" placeholder="DD-MM-YYYY" name="dataNascimento" defaultValue={model.dataNascimento} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
-                    </Form.Group>
-
-                    <Form.Group>
-                        <Form.Label>e-mail</Form.Label>
-                        <Form.Control type="email" placeholder="email" name="email" value={model.email} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Row>
+                            <Col>
+                                <Form.Label>Data de Nascimento</Form.Label>
+                                <Form.Control type="text" placeholder="DD-MM-YYYY" name="dataNascimento" defaultValue={model.dataNascimento} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                            </Col>
+                            <Col>
+                                <Form.Label>e-mail</Form.Label>
+                                <Form.Control type="email" placeholder="email" name="email" value={model.email} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                            </Col>
+                        </Row>
                     </Form.Group>
                     <div>
-                        <br/>
+                        <br />
                         <h1>Endereço</h1>
-                        <br/>
+                        <br />
                     </div>
                     <Form.Group>
                         <Form.Label>Rua</Form.Label>
@@ -142,39 +148,45 @@ const Clientes: React.FC = () => {
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Numero</Form.Label>
-                        <Form.Control type="text" placeholder="Numero" name="numero" value={model.numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                        <Row>
+                            <Col>
+                                <Form.Label>CEP</Form.Label>
+                                <Form.Control type="text" placeholder="CEP" name="cep" value={model.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                            </Col>
+                            <Col>
+                                <Form.Label>Numero</Form.Label>
+                                <Form.Control type="text" placeholder="Numero" name="numero" value={model.numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                            </Col>
+                            <Col>
+                                <Form.Label>Complemento</Form.Label>
+                                <Form.Control type="text" placeholder="Complemento" name="complemento" value={model.complemento} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} />
+                            </Col>
+                        </Row>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Complemento</Form.Label>
-                        <Form.Control type="text" placeholder="Complemento" name="complemento" value={model.complemento} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} />
+                        <Row>
+                            <Col>
+                                <Form.Label>Bairro</Form.Label>
+                                <Form.Control type="text" placeholder="Bairro" name="bairro" value={model.bairro} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                            </Col>
+                            <Col>
+                                <Form.Label>Cidade</Form.Label>
+                                <Form.Control type="text" placeholder="Cidade" name="cidade" value={model.cidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                            </Col>
+                            <Col>
+                                <Form.Label>Estado</Form.Label>
+                                <Form.Control type="text" placeholder="Estado" name="estado" value={model.estado} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
+                            </Col>
+                        </Row>
                     </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Bairro</Form.Label>
-                        <Form.Control type="text" placeholder="Bairro" name="bairro" value={model.bairro} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
-                    </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Cidade</Form.Label>
-                        <Form.Control type="text" placeholder="Cidade" name="cidade" value={model.cidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
-                    </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Estado</Form.Label>
-                        <Form.Control type="text" placeholder="Estado" name="estado" value={model.estado} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
-                    </Form.Group>
-
-                    <Form.Group>
-                        <Form.Label>CEP</Form.Label>
-                        <Form.Control type="text" placeholder="CEP" name="cep" value={model.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required />
-                    </Form.Group>
-
-                    <Button variant="outline-dark" type="submit">
+                    <Button variant="outline-primary" type="submit">
                         Salvar
-                    </Button>                    
-                </Form>                
+                    </Button>
+                </Form>
             </Container>
         </>
     );

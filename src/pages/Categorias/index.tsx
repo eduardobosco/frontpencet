@@ -52,7 +52,7 @@ const Categorias: React.FC = () => {
 
             <div className="task-header">
             <h1>Categorias</h1>
-            <Button variant="outline-dark" onClick={newCategoria}>Nova Categoria</Button>
+            <Button variant="outline-primary" onClick={newCategoria}>Nova Categoria</Button>
             </div>
             <br />
             <Table striped bordered hover className="text-center">

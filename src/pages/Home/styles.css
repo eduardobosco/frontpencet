@@ -4,8 +4,8 @@ home,
     padding: 150px 0;
 }
 
-.home-text h1 {
-    font-size: 60px;
+#home-text {
+    font-size: 50px;
     text-align: center;
 }
 

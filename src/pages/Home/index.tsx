@@ -1,24 +1,17 @@
 import React from 'react';
 import '../Home/styles.css'
+import { ReactComponent as DashImage } from '../../Assets/dashImage.svg'
 
-const Home: React.FC = () => {
-  return (
+const Home = () => (
 
-    <>
-      <div className="home-text">
-        <h1>Painel Administrativo</h1>
-      </div>
-      <div >
-        <img
-          id="dash-image"
-          alt=""
-          src="./dash_image.svg"
-          width= "1000"
-          className="d-inline-block align-top" />
-      </div>
-    </>
-  )
-}
+  <div className="home-container">
+        <div className="home-text">
+          <h1 className="home-text-title">Bem Vindo</h1>
+          <h3 className="home-text-subtitle">Painel Administrativo Pencet</h3>
+        </div>
+      <DashImage className='home-image' />
+  </div>
+
+);
 
 export default Home;
-

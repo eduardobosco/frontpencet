@@ -58,7 +58,7 @@ const Clientes: React.FC = () => {
         <>
             <div className="task-header">
                 <h1>Clientes</h1>
-                <Button variant="outline-dark" onClick={newCliente}>Novo Cliente</Button>
+                <Button variant="outline-primary" onClick={newCliente}>Novo Cliente</Button>
             </div>
             <br />
             <Table striped bordered hover className="text-center">

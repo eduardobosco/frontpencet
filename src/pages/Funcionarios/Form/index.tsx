@@ -62,7 +62,7 @@ const Tasks: React.FC = () => {
         <>
             <div className="task-header">
                 <h1>Cadastro Funcionários</h1>
-                <Button variant="outline-dark" onClick={back}>Voltar</Button>
+                <Button variant="outline-primary" onClick={back}>Voltar</Button>
             </div>
     
             <Container>
@@ -90,7 +90,7 @@ const Tasks: React.FC = () => {
                             required
                         />
                     </Form.Group>
-                    <Button variant="outline-dark" type="submit">
+                    <Button variant="outline-primary" type="submit">
                         Salvar
                     </Button>
                 </Form>
