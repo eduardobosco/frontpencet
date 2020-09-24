@@ -54,6 +54,7 @@ const Pedidos: React.FC = () => {
         <>
             <div className="task-header">
                 <h1>Pedidos</h1>
+                <Button variant="outline-primary" onClick={newPedido}>Novo Pedido</Button>
             </div>
             <br />
             <Table striped bordered hover className="text-center">

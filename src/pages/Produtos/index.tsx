@@ -64,7 +64,7 @@ const Produto: React.FC = () => {
     <>
       <div className="product-header">
         <h1>Produtos</h1>
-        <Button variant="outline-primary" onClick={newProduto}>Novo Produto</Button>
+        {/* <Button variant="outline-primary" onClick={newProduto}>Novo Produto</Button> */}
       </div>
       <br />
       <Table striped bordered hover className="text-center" size="lg">
