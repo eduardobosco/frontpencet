@@ -11,6 +11,7 @@ import Categorias from './pages/Categorias';
 import CategoriasForm from './pages/Categorias/Form';
 import Clientes from './pages/Clientes';
 import ClientesForm from './pages/Clientes/Form';
+import ClientesFormDetail from './pages/Clientes/FormDetail';
 import Pedidos from './pages/Pedidos';
 import PedidosForm from './pages/Pedidos/Form';
 
@@ -31,6 +32,7 @@ const Routes: React.FC = () => {
           <Route path="/cliente" exact component={Clientes} />
           <Route path="/cadcliente" exact component={ClientesForm} />
           <Route path="/cliente/:id" exact component={ClientesForm} />
+          <Route path="/cliente_detail/:id" exact component={ClientesFormDetail} />
           <Route path="/pedido" exact component={Pedidos} />
           <Route path="/cadpedido" exact component={PedidosForm} />
           <Route path="/pedido/:id" exact component={PedidosForm} />

@@ -27,17 +27,20 @@ const Produtos: React.FC = () => {
         descricao: '',
         qtdEstoque: 0,
         valor: 0,
+        dataFabricacao: '',
+
         funcionario: {
             id:0,
             nome:'',
             cpf:''
         },
+        
         categoria: {
             id:0,
             nome:'',
             descricao:''
         },
-        dataFabricacao: '',
+        
     });
 
     useEffect(() => {
@@ -69,7 +72,7 @@ const Produtos: React.FC = () => {
 
         <>
             <div className="task-header">
-                <h1>Cadastro de Produtos</h1>
+                <h1>Informações de Produtos</h1>
                 <Button variant="outline-primary" onClick={back}>Voltar</Button>
             </div>
             <br />

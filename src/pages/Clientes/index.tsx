@@ -49,6 +49,9 @@ const Clientes: React.FC = () => {
         loadClientes();
 
     }
+    function detailsCliente(id: number) {
+        history.push(`/cliente_detail/${id}`)
+      }
 
     function formatDate(date: Date){ 
         return moment(date).format("DD/MM/YYYY");
@@ -87,7 +90,7 @@ const Clientes: React.FC = () => {
                                 <td>{formatDate(clientes.dataNascimento)}</td>
                                 <td>{clientes.email}</td>
                                 <td>
-                                    <Button id="action-button" size="sm" variant="outline-info" onClick={() => editCliente(clientes.id)}>Detalhes</Button>{' '}
+                                    <Button id="action-button" size="sm" variant="outline-info" onClick={() => detailsCliente(clientes.id)}>Detalhes</Button>{' '}
                                     <Button size="sm" variant="outline-primary" onClick={() => editCliente(clientes.id)}>Editar</Button>{' '}
                                     <Button size="sm" variant="outline-danger" onClick={() => deleteCliente(clientes.id)} >Deletar</Button>
                                 </td>
