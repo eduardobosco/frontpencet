@@ -6,6 +6,7 @@ import Funcionarios from './pages/Funcionarios';
 import FuncionariosForm from './pages/Funcionarios/Form';
 import Produtos from './pages/Produtos';
 import ProdutosForm from './pages/Produtos/Form';
+import ProdutosFormDetail from './pages/Produtos/FormDetail';
 import Categorias from './pages/Categorias';
 import CategoriasForm from './pages/Categorias/Form';
 import Clientes from './pages/Clientes';
@@ -23,6 +24,7 @@ const Routes: React.FC = () => {
           <Route path="/produto" exact component={Produtos} />
           <Route path="/cadproduto" exact component={ProdutosForm} />
           <Route path="/produto/:id" exact component={ProdutosForm} />
+          <Route path="/produto_detail/:id" exact component={ProdutosFormDetail} />
           <Route path="/categoria" exact component={Categorias} />
           <Route path="/cadcategoria" exact component={CategoriasForm} />
           <Route path="/categoria/:id" exact component={CategoriasForm} />

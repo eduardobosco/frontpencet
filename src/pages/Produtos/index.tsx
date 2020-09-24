@@ -45,6 +45,10 @@ const Produto: React.FC = () => {
      history.push(`/produto/${id}`)
    }
 
+   function detailsProduto(id: number) {
+    history.push(`/produto_detail/${id}`)
+  }
+
    async function deleteProduto(id: number) {
      await api.delete(`/produto/${id}`)
      loadProdutos()
@@ -87,7 +91,7 @@ const Produto: React.FC = () => {
                 <td>R$ {produtos.valor.toFixed(2).replace(".",",")}</td>
                 <td>{formatDate(produtos.dataFabricacao)}</td>
                 <td >
-                  <Button id="action-button" size="sm" variant="outline-info" onClick={() => editProduto(produtos.id)}>Detalhes</Button>{' '}
+                  <Button id="action-button" size="sm" variant="outline-info" onClick={() => detailsProduto(produtos.id)}>Detalhes</Button>{' '}
                   <Button id="action-button" size="sm" variant="outline-primary" onClick={() => editProduto(produtos.id)}>Editar</Button>{' '}
                   <Button id="action-button" size="sm" variant="outline-danger" onClick={() => deleteProduto(produtos.id)} >Deletar</Button>
                 </td>

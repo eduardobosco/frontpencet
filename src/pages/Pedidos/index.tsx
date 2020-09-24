@@ -45,11 +45,6 @@ const Pedidos: React.FC = () => {
         history.push(`/pedido/${id}`);
     }
     
-    async function deletePedido(id: number) {
-         await api.delete(`/pedido/${id}`);
-         loadPedido();
-    }
-
     function formatDate(date: Date){ 
         return moment(date).format("DD/MM/YYYY");
     }
@@ -59,7 +54,6 @@ const Pedidos: React.FC = () => {
         <>
             <div className="task-header">
                 <h1>Pedidos</h1>
-                <Button variant="outline-primary" onClick={newPedido}>Novo Pedido</Button>
             </div>
             <br />
             <Table striped bordered hover className="text-center">

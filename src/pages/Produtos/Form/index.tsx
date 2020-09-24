@@ -12,14 +12,15 @@ interface Iprod {
     descricao: string;
     qtdEstoque: number;
     valor: number;
-    id_funcionario: string;
-    id_categoria: string;
+    funcionario: Funcionario;
+    categoria: Categoria;
     dataFabricacao: string;
 }
 
 const Produtos: React.FC = () => {
 
     //type categoria
+    const [selectValues, setselectValues] = useState();
     const [categorias, setCategorias] = useState<Categoria[]>([]);
 
     useEffect(() => {
@@ -56,10 +57,17 @@ const Produtos: React.FC = () => {
         descricao: '',
         qtdEstoque: 0,
         valor: 0,
-        id_funcionario: '',
-        id_categoria: '',
+        funcionario: {
+            id: 0,
+            nome: '',
+            cpf: ''
+        },
+        categoria: {
+            id: 0,
+            nome: '',
+            descricao: ''
+        },
         dataFabricacao: '',
-
     });
 
     useEffect(() => {
@@ -69,8 +77,6 @@ const Produtos: React.FC = () => {
     }, [id]);
 
     function updateModel(e: ChangeEvent<HTMLInputElement>) {
-        console.log(e.target)
-        console.log(e.target.value)
         setModel({
             ...model,
             [e.target.name]: e.target.value
@@ -96,14 +102,20 @@ const Produtos: React.FC = () => {
             descricao: response.data.descricao,
             qtdEstoque: response.data.qtdEstoque,
             valor: response.data.valor,
-            id_funcionario: response.data.id_funcionario,
-            id_categoria: response.data.id_categoria,
+            funcionario: response.data.funcionario,
+            categoria: response.data.categoria,
             dataFabricacao: response.data.dataFabricacao,
         });
     }
     function back() {
         history.goBack()
     }
+
+    async function handleChange(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault()
+         setselectValues(e.target.value);
+    }
+
 
 
     return (
@@ -147,13 +159,13 @@ const Produtos: React.FC = () => {
                         <Row>
                             <Col>
                                 <Form.Label>Nome Funcionario</Form.Label>
-                                <Form.Control as="select" placeholder="Funcionario" name="id_funcionario" value={model.id_funcionario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
+                                <Form.Control as="select" placeholder="Funcionario" name="id_funcionario" value={selectValues} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)} required>
                                     {funcionarios.map((funcionario, index) => (<option key={funcionario.nome} value={funcionario.id}>{funcionario.nome}</option>))}
                                 </Form.Control>
                             </Col>
                             <Col>
                                 <Form.Label id="categoria-options">Nome Categoria</Form.Label>
-                                <Form.Control as="select" placeholder="Categoria" name="id_categoria" value={model.id_categoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
+                                <Form.Control as="select" placeholder="Categoria" name="id_categoria" value={model.categoria.id} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
                                     {categorias.map((categoria, index) => (<option key={categoria.nome} value={categoria.id}>{categoria.nome}</option>))}
                                 </Form.Control>
                             </Col>
@@ -170,3 +182,72 @@ const Produtos: React.FC = () => {
 }
 
 export default Produtos;
+
+
+
+
+class TodoApp extends React.Component {
+
+    constructor(props) {
+
+        super(props)
+
+        this.state = {
+
+            items: [
+
+                { id: 1, text: "Learn JavaScript" },
+
+                { id: 2, text: "Learn React" },
+
+                { id: 3, text: "Play around in JSFiddle" },
+
+                { id: 4, text: "Build something awesome" }
+
+            ],
+
+            selectItem: 4
+
+        };
+
+        this.handleSelectItem = this.handleSelectItem.bind(this);
+
+    }
+
+
+    handleSelectItem(e) {
+
+        this.setState({ selectItem: e.target.value });
+
+    };
+
+
+    render() {
+
+        return (
+
+            <div>
+
+                <h2>Todos: {this.state.selectItem}</h2>
+
+                <select value={this.state.selectItem} onChange={this.handleSelectItem}>
+
+                    {this.state.items.map((item, index) => (
+
+                        <option key={index} value={item.id}>{item.text}</option>
+
+                    ))}
+
+                </select>
+
+            </div>
+
+        )
+
+    }
+
+}
+
+
+
+ReactDOM.render(<TodoApp />, document.querySelector("#app"))
