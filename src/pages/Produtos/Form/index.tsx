@@ -22,26 +22,26 @@ const Produtos: React.FC = () => {
     const [categorias, setCategorias] = useState<Categoria[]>([]);
 
     useEffect(() => {
-    
-     api.get('/categoria').then(response => {
-    
-     setCategorias(response.data);
-    
-     })
-    
-     }, []);
 
-     const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
+        api.get('/categoria').then(response => {
 
-     useEffect(() => {
-     
-      api.get('/funcionario').then(response => {
-     
-      setFuncionarios(response.data);
-     
-      })
-     
-      }, []);
+            setCategorias(response.data);
+
+        })
+
+    }, []);
+
+    const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
+
+    useEffect(() => {
+
+        api.get('/funcionario').then(response => {
+
+            setFuncionarios(response.data);
+
+        })
+
+    }, []);
     // form produto
     const history = useHistory();
     const { id } = useParams();
@@ -51,14 +51,14 @@ const Produtos: React.FC = () => {
         qtdEstoque: 0,
         valor: 0,
         funcionario: {
-            id:0,
-            nome:'',
-            cpf:''
+            id: 0,
+            nome: '',
+            cpf: ''
         },
         categoria: {
-            id:0,
-            nome:'',
-            descricao:''
+            id: 0,
+            nome: '',
+            descricao: ''
         },
         dataFabricacao: '',
     });
@@ -149,13 +149,13 @@ const Produtos: React.FC = () => {
                             <Col>
                                 <Form.Label>Nome Funcionario</Form.Label>
                                 <Form.Control as="select" placeholder="Funcionario" name="id_funcionario" onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
-                                <option value="0">Selecione uma opção</option>{funcionarios.map(funcionario => (<option key={funcionario.id} value={funcionario.id}>{funcionario.nome}</option>))}
+                                    <option value="0">Selecione uma opção</option>{funcionarios.map(funcionario => (<option key={funcionario.id} value={funcionario.id}>{funcionario.nome}</option>))}
                                 </Form.Control>
                             </Col>
                             <Col>
                                 <Form.Label id="categoria-options">Nome Categoria</Form.Label>
-                                <Form.Control as="select" placeholder="Categoria" name="id_categoria"  onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
-                                <option value="0">Selecione uma opção</option>{categorias.map(categoria => (<option key={categoria.id} value={categoria.id}>{categoria.nome}</option>))}
+                                <Form.Control as="select" placeholder="Categoria" name="id_categoria" onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} required>
+                                    <option value="0">Selecione uma opção</option>{categorias.map(categoria => (<option key={categoria.id} value={categoria.id}>{categoria.nome}</option>))}
                                 </Form.Control>
                             </Col>
                         </Row>
